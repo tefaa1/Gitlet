@@ -17,3 +17,7 @@ Gitlet is a simple, distributed version control system that simulates Git. It he
 - **Remove Branches**: Delete branches that are no longer needed.
 - **Reset**: Reset the current branch to a specific commit.
 - **Merge**: Combine changes from different branches.
+
+## Project Inspiration
+
+This project is based on the specifications provided in the [CS61B Project 2 - Gitlet](https://sp21.datastructur.es/materials/proj/proj2/proj2) from the Spring 2021 Data Structures course at UC Berkeley.
