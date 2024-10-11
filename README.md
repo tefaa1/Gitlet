@@ -1,6 +1,6 @@
 # Gitlet
 
-Gitlet is a distributed version control system inspired by Git. Designed primarily for educational purposes, it provides a hands-on way to learn the concepts behind version control. It is not intended for production environments.
+Gitlet is a simple, distributed version control system that simulates Git. It helps you track project changes, manage branches, and handle commits, offering core Git functionalities in a lightweight package.
 
 ## Features
 
