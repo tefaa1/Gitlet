@@ -96,8 +96,8 @@ public class RepoUtils {
         }
     }
 
-    public static String splitPoint(HashSet<String> curSet
-            , HashSet<String> givSet, Commit curCom, Commit givCom) {
+    public static String splitPoint
+            (HashSet<String> curSet, HashSet<String> givSet, Commit curCom, Commit givCom) {
         while (curCom != null || givCom != null) {
             if (curCom != null) {
                 String id = curCom.getId();

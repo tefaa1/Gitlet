@@ -91,15 +91,15 @@ public class Main {
                         Repository.checkoutWithName(args[2]);
                     }
                     else{
-                        System.out.println("invalid args");
+                        System.out.println("Incorrect operands.");
                     }
                 }// head commit
                 else if (args.length == 4) {
-                    if(args[2].equals("--")) {
+                    if (args[2].equals ("--")) {
                         Repository.checkoutWithId(args[1], args[3]);
                     }
                     else{
-                        System.out.println("invalid args");
+                        System.out.println("Incorrect operands.");
                     }
                 } else {
                     System.out.println("invalid args");

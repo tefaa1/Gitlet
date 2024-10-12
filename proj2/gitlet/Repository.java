@@ -137,9 +137,10 @@ public class Repository implements Serializable {
                     // you might never add this file
                     File newBlob = join(blobs, newHash);
                     writeContents(newBlob, readContents(fileByUser));
-                    stagedAdd.put(addedFile, newHash);
                     if (stagedRem.containsKey(addedFile)) {
                         stagedRem.remove(addedFile);
+                    } else {
+                        stagedAdd.put(addedFile, newHash);
                     }
                     checkBlobs.put(addedFile, newHash);
                     writeObject(blobsMap, checkBlobs);
@@ -375,11 +376,11 @@ public class Repository implements Serializable {
         HashMap<String, String> curRefs = test.getRefs();
         Commit test1 = readObject(join(commits, I), Commit.class);
         HashMap<String, String> checkoutRefs = test1.getRefs();
-        curRefs.forEach((key, value) -> {
+        curFiles.forEach((key, value) -> {
             if (checkoutRefs.containsKey(key)) {
-                if (!value.equals(curFiles.get(key))) {
-                    String s = "There is an untracked file in the way; "
-                            + "delete it, or add and commit it first.";
+                if (!value.equals(checkBlobs.get(key))) {
+                    String s = "There is an untracked file in the way;"
+                            + " delete it, or add and commit it first.";
                     System.out.println(s);
                     System.exit(0);
                 }
@@ -453,7 +454,8 @@ public class Repository implements Serializable {
         HashMap<String, String> stagedAdd = readObject(stagedForAddFiles, HashMap.class);
         HashMap<String, String> stagedRemove = readObject(stagedForRemoveFiles, HashMap.class);
         if (!stagedAdd.isEmpty() || !stagedRemove.isEmpty()) {
-            String s = "There is an untracked file in the way; delete it, or add and commit it first.";
+            String s = "There is an untracked file in the way;"
+                    + " delete it, or add and commit it first.";
             System.out.println(s);
             System.exit(0);
         }
@@ -473,7 +475,8 @@ public class Repository implements Serializable {
         getFiles(curFiles, CWD, join(CWD, ".gitlet"));
         HashMap<String, String> checkBlobs = readObject(blobsMap, HashMap.class);
         if (!checkBlobs.equals(curFiles)) {
-            String s = "There is an untracked file in the way; delete it, or add and commit it first.";
+            String s = "There is an untracked file in the way;"
+                    + " delete it, or add and commit it first.";
             System.out.println(s);
             System.exit(0);
         }
@@ -496,7 +499,7 @@ public class Repository implements Serializable {
         HashMap<String, String> idRefs = idCommit.getRefs();
         deleteFiles(CWD);
         checkBlobs.clear();
-        givRefs.forEach((key, value) ->     {
+        givRefs.forEach((key, value) -> {
             if (curRefs.containsKey(key)) {
                 if (value.equals(curRefs.get(key))) {
                     // 3
@@ -548,6 +551,7 @@ public class Repository implements Serializable {
                         writeContents(newBlob, s);
                         checkBlobs.put(key, H(dest));
                         writeObject(blobsMap, checkBlobs);
+                        System.out.println("Encountered a merge conflict.");
                     }
                 }
                 curRefs.remove(key);
@@ -568,6 +572,7 @@ public class Repository implements Serializable {
                         writeContents(newBlob, s);
                         checkBlobs.put(key, H(dest));
                         writeObject(blobsMap, checkBlobs);
+                        System.out.println("Encountered a merge conflict.");
                     }
                 } else {
                     // 5
@@ -598,6 +603,7 @@ public class Repository implements Serializable {
                     writeContents(newBlob, s);
                     checkBlobs.put(key, H(dest));
                     writeObject(blobsMap, checkBlobs);
+                    System.out.println("Encountered a merge conflict.");
                 }
             } else {
                 createPathIfNotExists(key);
@@ -610,7 +616,7 @@ public class Repository implements Serializable {
                 // 4
             }
         });
-        String msg = "Merged " + readContentsAsString(head) + " into " + name;
+        String msg = "Merged " + name + " into " + readContentsAsString(head);
         String merge = curCommit.getId().substring(0, 7) + " " + givCommit.getId().substring(0, 7);
         Commit com = new Commit(msg, curCommit, givCommit, merge);
         File temp = join(branches, readContentsAsString(head));
