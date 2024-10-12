@@ -276,11 +276,11 @@ public class Repository implements Serializable {
         HashMap<String, String> checkBlobs = readObject(blobsMap, HashMap.class);
         getFiles(curFiles, CWD, join(CWD, ".gitlet"));
         System.out.println("=== Branches ===");
+        System.out.println("*" + cur);
         for (String it : branch) {
-            if (it.equals(cur)) {
-                System.out.print("*");
+            if (!it.equals(cur)) {
+                System.out.println(it);
             }
-            System.out.println(it);
         }
         HashMap<String, String> stagedAdd = readObject(stagedForAddFiles, HashMap.class);
         HashMap<String, String> stagedRem = readObject(stagedForRemoveFiles, HashMap.class);
@@ -378,7 +378,7 @@ public class Repository implements Serializable {
         HashMap<String, String> checkoutRefs = test1.getRefs();
         curFiles.forEach((key, value) -> {
             if (checkoutRefs.containsKey(key)) {
-                if (!value.equals(checkBlobs.get(key))) {
+                if (!value.equals(curRefs.get(key))) {
                     String s = "There is an untracked file in the way;"
                             + " delete it, or add and commit it first.";
                     System.out.println(s);
@@ -616,7 +616,7 @@ public class Repository implements Serializable {
                 // 4
             }
         });
-        String msg = "Merged " + name + " into " + readContentsAsString(head);
+        String msg = "Merged " + name + " into " + readContentsAsString(head) + ".";
         String merge = curCommit.getId().substring(0, 7) + " " + givCommit.getId().substring(0, 7);
         Commit com = new Commit(msg, curCommit, givCommit, merge);
         File temp = join(branches, readContentsAsString(head));
