@@ -17,14 +17,14 @@ public class Main {
         switch (firstArg) {
             case "init":
                 if (args.length != 1) {
-                    System.out.println("invalid args");
+                    System.out.println("Incorrect operands.");
                 } else {
                     Repository.init();
                 }
                 break;
             case "add":
                 if (args.length != 2) {
-                    System.out.println("invalid args");
+                    System.out.println("Incorrect operands.");
                 } else {
                     Repository.add(args[1]);
                 }
@@ -44,21 +44,21 @@ public class Main {
                 break;
             case "rm":
                 if (args.length != 2) {
-                    System.out.println("invalid args");
+                    System.out.println("Incorrect operands.");
                 } else {
                     Repository.rm(args[1]);
                 }
                 break;
             case "log":
                 if (args.length != 1) {
-                    System.out.println("invalid args");
+                    System.out.println("Incorrect operands.");
                 } else {
                     Repository.log();
                 }
                 break;
             case "global-log":
                 if (args.length != 1) {
-                    System.out.println("invalid args");
+                    System.out.println("Incorrect operands.");
                 } else {
                     Repository.globalLog();
                 }
@@ -78,7 +78,7 @@ public class Main {
                 break;
             case "status":
                 if (args.length != 1) {
-                    System.out.println("invalid args");
+                    System.out.println("Incorrect operands.");
                 } else {
                     Repository.status();
                 }
@@ -102,7 +102,7 @@ public class Main {
                         System.out.println("Incorrect operands.");
                     }
                 } else {
-                    System.out.println("invalid args");
+                    System.out.println("Incorrect operands.");
                 }
                 break;
             case "branch":
@@ -110,7 +110,7 @@ public class Main {
                 else if (args.length == 2) {
                     Repository.branch(args[1]);
                 } else {
-                    System.out.println("invalid args");
+                    System.out.println("Incorrect operands.");
                 }
                 break;
             case "rm-branch":
@@ -118,7 +118,7 @@ public class Main {
                 else if (args.length == 2) {
                     Repository.remBranch(args[1]);
                 } else {
-                    System.out.println("invalid args");
+                    System.out.println("Incorrect operands.");
                 }
                 break;
             case "reset":
@@ -126,7 +126,7 @@ public class Main {
                 else if (args.length == 2) {
                     Repository.reset(args[1]);
                 } else {
-                    System.out.println("invalid args");
+                    System.out.println("Incorrect operands.");
                 }
                 break;
             case "merge":
@@ -134,7 +134,7 @@ public class Main {
                 else if (args.length == 2) {
                     Repository.merge(args[1]);
                 } else {
-                    System.out.println("invalid args");
+                    System.out.println("Incorrect operands.");
                 }
                 break;
             default:

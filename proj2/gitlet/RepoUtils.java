@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayDeque;
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -48,8 +49,9 @@ public class RepoUtils {
         }
     }
 
+    // the blob hash depends only on the file contents, like in real git
     public static String H(File x) {
-        return sha1(serialize(x)) + sha1(readContentsAsString(x));
+        return sha1(readContents(x));
     }
 
     public static String getSpecificPath(String fullPath, File gitLet) {
@@ -58,6 +60,13 @@ public class RepoUtils {
         Path relativePath = basePath.relativize(filePath);
         return relativePath.toString().replace("\\", "/");
         // Replace backslashes with forward slashes
+    }
+
+    // turns a path typed by the user (like "./src\A.java") into the
+    // repository key used everywhere else (like "src/A.java")
+    public static String toRepoPath(String name) {
+        Path full = join(CWD, name).toPath().normalize();
+        return getSpecificPath(full.toString(), GITLET_DIR);
     }
 
     // recursion method to get all files
@@ -78,42 +87,53 @@ public class RepoUtils {
         }
     }
 
-    public static void deleteFiles(File W) {
-        File C = join(GITLET_DIR, "allFiles");
-        HashMap<String, String> curFiles = readObject(C, HashMap.class);
-        if (W.isDirectory()) {
-            if (!curFiles.containsKey(W.getName())) {
-                File[] files = W.listFiles();
-                for (File it : files) {
-                    deleteFiles(it);
-                }
-                W.delete();
+    // deletes a file from the working directory, then any folders it leaves empty
+    public static void deleteWorkingFile(String path) {
+        File file = join(CWD, path);
+        file.delete();
+        File dir = file.getParentFile();
+        while (dir != null && !dir.equals(CWD) && dir.isDirectory()) {
+            String[] left = dir.list();
+            if (left == null || left.length != 0) {
+                break;
             }
-        } else {
-            if (!curFiles.containsKey(W.getName())) {
-                W.delete();
-            }
+            dir.delete();
+            dir = dir.getParentFile();
         }
     }
 
-    public static String splitPoint
-            (HashSet<String> curSet, HashSet<String> givSet, Commit curCom, Commit givCom) {
-        while (curCom != null || givCom != null) {
-            if (curCom != null) {
-                String id = curCom.getId();
-                if (givSet.contains(id)) {
-                    return id;
+    // the latest common ancestor of the two commits, following both parents
+    // of merge commits: the closest ancestor of CURCOM that GIVCOM also has
+    public static String splitPoint(Commit curCom, Commit givCom) {
+        HashSet<String> givSet = new HashSet<>();
+        ArrayDeque<Commit> stack = new ArrayDeque<>();
+        stack.push(givCom);
+        while (!stack.isEmpty()) {
+            Commit com = stack.pop();
+            if (givSet.add(com.getId())) {
+                if (com.getParent() != null) {
+                    stack.push(com.getParent());
                 }
-                curSet.add(id);
-                curCom = curCom.getParent();
+                if (com.getSecParent() != null) {
+                    stack.push(com.getSecParent());
+                }
             }
-            if (givCom != null) {
-                String id = givCom.getId();
-                if (curSet.contains(id)) {
-                    return id;
+        }
+        HashSet<String> curSet = new HashSet<>();
+        ArrayDeque<Commit> queue = new ArrayDeque<>();
+        queue.add(curCom);
+        while (!queue.isEmpty()) {
+            Commit com = queue.poll();
+            if (givSet.contains(com.getId())) {
+                return com.getId();
+            }
+            if (curSet.add(com.getId())) {
+                if (com.getParent() != null) {
+                    queue.add(com.getParent());
                 }
-                givSet.add(id);
-                givCom = givCom.getParent();
+                if (com.getSecParent() != null) {
+                    queue.add(com.getSecParent());
+                }
             }
         }
         return null;

@@ -23,9 +23,9 @@ public class Commit implements Serializable {
         this.secParent = secParent;
         this.merge = merge;
         refs = new HashMap<>();
-        Date date = new Date();
+        // the initial commit is dated at the Unix epoch, like in the spec
+        Date date = parent == null ? new Date(0) : new Date();
         Formatter formatter = new Formatter();
-        TimeZone.getDefault();
         formatter.format("%ta %tb %td %tT %tY %tz", date, date, date, date, date, date);
         timeStamp = formatter.toString();
     }
@@ -48,6 +48,10 @@ public class Commit implements Serializable {
 
     public Commit getParent() {
         return parent;
+    }
+
+    public Commit getSecParent() {
+        return secParent;
     }
 
     public String getId() {
