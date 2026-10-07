@@ -1,0 +1,13 @@
+# Build output
+proj2/out/
+proj2/target/
+proj2/classes/
+proj2/gitlet/*.class
+proj2/gitlet/sentinel
+
+# Gitlet repositories created while trying the program
+.gitlet/
+
+# OS files
+.DS_Store
+Thumbs.db
