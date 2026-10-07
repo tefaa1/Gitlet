@@ -1,0 +1,251 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="438" viewBox="0 0 860 438" role="img" aria-labelledby="title desc">
+<title id="title">Gitlet demo</title>
+<desc id="desc">A terminal session: initialising a Gitlet repository, committing a file, viewing the log, creating a branch, merging it with a conflict, and inspecting the merged history.</desc>
+<style>
+text{font-family:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;font-size:14px;white-space:pre}
+.ti,.lb{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;font-size:12.5px;fill:#7d8590}
+.ti{font-weight:600}
+.bg{fill:#0d1117}
+.pr{fill:#3fb950;font-weight:700}
+.cd{fill:#e6edf3}
+.ou{fill:#c9d1d9}
+.hd{fill:#58a6ff}
+.cm{fill:#d29922}
+.mg{fill:#bc8cff}
+.dt{fill:#7d8590}
+.ok{fill:#3fb950}
+.wa{fill:#f0883e;font-weight:700}
+.cf{fill:#ff7b72}
+.cu{fill:#e6edf3}
+.bl{animation:blink 1.06s steps(1,end) infinite}
+@keyframes blink{0%{opacity:1}50%{opacity:0}}
+/* static fallback (no animation support or reduced motion): show the last scene */
+.sc{opacity:0}.sc.last{opacity:1}.cv{opacity:0}
+@keyframes s0{0%,25.784%{opacity:1}26.707%,100%{opacity:0}}
+.s0{animation:s0 37.90s linear infinite}
+@keyframes e0{0%,1.583%{opacity:0}1.609%,100%{opacity:1}}
+.e0{animation:e0 37.90s linear infinite}
+@keyframes c1{0%,1.583%{transform:translateX(0);opacity:1}2.770%,100%{transform:translateX(96.9px);opacity:1}}
+.c1{animation:c1 37.90s steps(11,end) infinite}
+@keyframes u1{0%,1.583%{opacity:0}1.609%,3.826%{opacity:1}3.852%,100%{opacity:0}}
+.u1{animation:u1 37.90s linear infinite}
+@keyframes e1{0%,3.826%{opacity:0}3.852%,100%{opacity:1}}
+.e1{animation:e1 37.90s linear infinite}
+@keyframes c2{0%,3.826%{transform:translateX(0);opacity:1}6.232%,100%{transform:translateX(206.8px);opacity:1}}
+.c2{animation:c2 37.90s steps(24,end) infinite}
+@keyframes u2{0%,3.826%{opacity:0}3.852%,7.288%{opacity:1}7.314%,100%{opacity:0}}
+.u2{animation:u2 37.90s linear infinite}
+@keyframes e2{0%,7.288%{opacity:0}7.314%,100%{opacity:1}}
+.e2{animation:e2 37.90s linear infinite}
+@keyframes c3{0%,7.288%{transform:translateX(0);opacity:1}9.293%,100%{transform:translateX(173.0px);opacity:1}}
+.c3{animation:c3 37.90s steps(20,end) infinite}
+@keyframes u3{0%,7.288%{opacity:0}7.314%,10.348%{opacity:1}10.375%,100%{opacity:0}}
+.u3{animation:u3 37.90s linear infinite}
+@keyframes e3{0%,10.348%{opacity:0}10.375%,100%{opacity:1}}
+.e3{animation:e3 37.90s linear infinite}
+@keyframes c4{0%,10.348%{transform:translateX(0);opacity:1}12.855%,100%{transform:translateX(215.2px);opacity:1}}
+.c4{animation:c4 37.90s steps(25,end) infinite}
+@keyframes u4{0%,10.348%{opacity:0}10.375%,13.910%{opacity:1}13.937%,100%{opacity:0}}
+.u4{animation:u4 37.90s linear infinite}
+@keyframes e4{0%,13.910%{opacity:0}13.937%,100%{opacity:1}}
+.e4{animation:e4 37.90s linear infinite}
+@keyframes c5{0%,13.910%{transform:translateX(0);opacity:1}15.098%,100%{transform:translateX(88.5px);opacity:1}}
+.c5{animation:c5 37.90s steps(10,end) infinite}
+@keyframes u5{0%,13.910%{opacity:0}13.937%,16.153%{opacity:1}16.179%,100%{opacity:0}}
+.u5{animation:u5 37.90s linear infinite}
+@keyframes e5{0%,16.153%{opacity:0}16.179%,100%{opacity:1}}
+.e5{animation:e5 37.90s linear infinite}
+@keyframes e6{0%,16.285%{opacity:0}16.311%,100%{opacity:1}}
+.e6{animation:e6 37.90s linear infinite}
+@keyframes e7{0%,16.417%{opacity:0}16.443%,100%{opacity:1}}
+.e7{animation:e7 37.90s linear infinite}
+@keyframes e8{0%,16.549%{opacity:0}16.575%,100%{opacity:1}}
+.e8{animation:e8 37.90s linear infinite}
+@keyframes e9{0%,16.681%{opacity:0}16.707%,100%{opacity:1}}
+.e9{animation:e9 37.90s linear infinite}
+@keyframes e10{0%,16.813%{opacity:0}16.839%,100%{opacity:1}}
+.e10{animation:e10 37.90s linear infinite}
+@keyframes e11{0%,16.945%{opacity:0}16.971%,100%{opacity:1}}
+.e11{animation:e11 37.90s linear infinite}
+@keyframes e12{0%,17.077%{opacity:0}17.103%,100%{opacity:1}}
+.e12{animation:e12 37.90s linear infinite}
+@keyframes e13{0%,17.208%{opacity:0}17.235%,100%{opacity:1}}
+.e13{animation:e13 37.90s linear infinite}
+@keyframes e14{0%,17.340%{opacity:0}17.367%,100%{opacity:1}}
+.e14{animation:e14 37.90s linear infinite}
+@keyframes s1{0%,27.367%{opacity:0}27.393%,76.459%{opacity:1}77.383%,100%{opacity:0}}
+.s1{animation:s1 37.90s linear infinite}
+@keyframes e15{0%,27.367%{opacity:0}27.393%,100%{opacity:1}}
+.e15{animation:e15 37.90s linear infinite}
+@keyframes c16{0%,27.367%{transform:translateX(0);opacity:1}32.179%,100%{transform:translateX(409.6px);opacity:1}}
+.c16{animation:c16 37.90s steps(48,end) infinite}
+@keyframes u16{0%,27.367%{opacity:0}27.393%,33.235%{opacity:1}33.261%,100%{opacity:0}}
+.u16{animation:u16 37.90s linear infinite}
+@keyframes e16{0%,33.235%{opacity:0}33.261%,100%{opacity:1}}
+.e16{animation:e16 37.90s linear infinite}
+@keyframes c17{0%,33.235%{transform:translateX(0);opacity:1}36.945%,100%{transform:translateX(316.6px);opacity:1}}
+.c17{animation:c17 37.90s steps(37,end) infinite}
+@keyframes u17{0%,33.235%{opacity:0}33.261%,38.000%{opacity:1}38.026%,100%{opacity:0}}
+.u17{animation:u17 37.90s linear infinite}
+@keyframes e17{0%,38.000%{opacity:0}38.026%,100%{opacity:1}}
+.e17{animation:e17 37.90s linear infinite}
+@keyframes c18{0%,38.000%{transform:translateX(0);opacity:1}43.615%,100%{transform:translateX(477.2px);opacity:1}}
+.c18{animation:c18 37.90s steps(56,end) infinite}
+@keyframes u18{0%,38.000%{opacity:0}38.026%,44.670%{opacity:1}44.697%,100%{opacity:0}}
+.u18{animation:u18 37.90s linear infinite}
+@keyframes e18{0%,44.670%{opacity:0}44.697%,100%{opacity:1}}
+.e18{animation:e18 37.90s linear infinite}
+@keyframes c19{0%,44.670%{transform:translateX(0);opacity:1}46.876%,100%{transform:translateX(189.9px);opacity:1}}
+.c19{animation:c19 37.90s steps(22,end) infinite}
+@keyframes u19{0%,44.670%{opacity:0}44.697%,47.931%{opacity:1}47.958%,100%{opacity:0}}
+.u19{animation:u19 37.90s linear infinite}
+@keyframes e19{0%,47.931%{opacity:0}47.958%,100%{opacity:1}}
+.e19{animation:e19 37.90s linear infinite}
+@keyframes c20{0%,47.931%{transform:translateX(0);opacity:1}51.541%,100%{transform:translateX(308.2px);opacity:1}}
+.c20{animation:c20 37.90s steps(36,end) infinite}
+@keyframes u20{0%,47.931%{opacity:0}47.958%,52.596%{opacity:1}52.623%,100%{opacity:0}}
+.u20{animation:u20 37.90s linear infinite}
+@keyframes e20{0%,52.596%{opacity:0}52.623%,100%{opacity:1}}
+.e20{animation:e20 37.90s linear infinite}
+@keyframes c21{0%,52.596%{transform:translateX(0);opacity:1}58.111%,100%{transform:translateX(468.7px);opacity:1}}
+.c21{animation:c21 37.90s steps(55,end) infinite}
+@keyframes u21{0%,52.596%{opacity:0}52.623%,59.166%{opacity:1}59.193%,100%{opacity:0}}
+.u21{animation:u21 37.90s linear infinite}
+@keyframes e21{0%,59.166%{opacity:0}59.193%,100%{opacity:1}}
+.e21{animation:e21 37.90s linear infinite}
+@keyframes c22{0%,59.166%{transform:translateX(0);opacity:1}61.172%,100%{transform:translateX(173.0px);opacity:1}}
+.c22{animation:c22 37.90s steps(20,end) infinite}
+@keyframes u22{0%,59.166%{opacity:0}59.193%,62.227%{opacity:1}62.253%,100%{opacity:0}}
+.u22{animation:u22 37.90s linear infinite}
+@keyframes e22{0%,62.227%{opacity:0}62.253%,100%{opacity:1}}
+.e22{animation:e22 37.90s linear infinite}
+@keyframes e23{0%,62.359%{opacity:0}62.385%,100%{opacity:1}}
+.e23{animation:e23 37.90s linear infinite}
+@keyframes c24{0%,62.359%{transform:translateX(0);opacity:1}63.662%,100%{transform:translateX(113.8px);opacity:1}}
+.c24{animation:c24 37.90s steps(13,end) infinite}
+@keyframes u24{0%,62.359%{opacity:0}62.385%,64.718%{opacity:1}64.744%,100%{opacity:0}}
+.u24{animation:u24 37.90s linear infinite}
+@keyframes e24{0%,64.718%{opacity:0}64.744%,100%{opacity:1}}
+.e24{animation:e24 37.90s linear infinite}
+@keyframes e25{0%,64.850%{opacity:0}64.876%,100%{opacity:1}}
+.e25{animation:e25 37.90s linear infinite}
+@keyframes e26{0%,64.982%{opacity:0}65.008%,100%{opacity:1}}
+.e26{animation:e26 37.90s linear infinite}
+@keyframes e27{0%,65.113%{opacity:0}65.140%,100%{opacity:1}}
+.e27{animation:e27 37.90s linear infinite}
+@keyframes e28{0%,65.245%{opacity:0}65.272%,100%{opacity:1}}
+.e28{animation:e28 37.90s linear infinite}
+@keyframes e29{0%,65.377%{opacity:0}65.404%,100%{opacity:1}}
+.e29{animation:e29 37.90s linear infinite}
+@keyframes s2{0%,78.042%{opacity:0}78.069%,98.417%{opacity:1}99.340%,100%{opacity:0}}
+.s2{animation:s2 37.90s linear infinite}
+@keyframes e30{0%,78.042%{opacity:0}78.069%,100%{opacity:1}}
+.e30{animation:e30 37.90s linear infinite}
+@keyframes c31{0%,78.042%{transform:translateX(0);opacity:1}80.148%,100%{transform:translateX(181.4px);opacity:1}}
+.c31{animation:c31 37.90s steps(21,end) infinite}
+@keyframes u31{0%,78.042%{opacity:0}78.069%,81.203%{opacity:1}81.230%,100%{opacity:0}}
+.u31{animation:u31 37.90s linear infinite}
+@keyframes e31{0%,81.203%{opacity:0}81.230%,100%{opacity:1}}
+.e31{animation:e31 37.90s linear infinite}
+@keyframes e32{0%,81.335%{opacity:0}81.361%,100%{opacity:1}}
+.e32{animation:e32 37.90s linear infinite}
+@keyframes e33{0%,81.467%{opacity:0}81.493%,100%{opacity:1}}
+.e33{animation:e33 37.90s linear infinite}
+@keyframes e34{0%,81.599%{opacity:0}81.625%,100%{opacity:1}}
+.e34{animation:e34 37.90s linear infinite}
+@keyframes e35{0%,81.731%{opacity:0}81.757%,100%{opacity:1}}
+.e35{animation:e35 37.90s linear infinite}
+@keyframes e36{0%,81.863%{opacity:0}81.889%,100%{opacity:1}}
+.e36{animation:e36 37.90s linear infinite}
+@keyframes e37{0%,81.995%{opacity:0}82.021%,100%{opacity:1}}
+.e37{animation:e37 37.90s linear infinite}
+@keyframes e38{0%,82.127%{opacity:0}82.153%,100%{opacity:1}}
+.e38{animation:e38 37.90s linear infinite}
+@keyframes e39{0%,82.259%{opacity:0}82.285%,100%{opacity:1}}
+.e39{animation:e39 37.90s linear infinite}
+@keyframes e40{0%,82.391%{opacity:0}82.417%,100%{opacity:1}}
+.e40{animation:e40 37.90s linear infinite}
+@keyframes e41{0%,82.522%{opacity:0}82.549%,100%{opacity:1}}
+.e41{animation:e41 37.90s linear infinite}
+@keyframes c42{0%,82.522%{transform:translateX(0);opacity:1}84.828%,100%{transform:translateX(198.3px);opacity:1}}
+.c42{animation:c42 37.90s steps(23,end) infinite}
+@keyframes u42{0%,82.522%{opacity:0}82.549%,85.884%{opacity:1}85.910%,100%{opacity:0}}
+.u42{animation:u42 37.90s linear infinite}
+@keyframes e42{0%,85.884%{opacity:0}85.910%,100%{opacity:1}}
+.e42{animation:e42 37.90s linear infinite}
+@keyframes e43{0%,86.016%{opacity:0}86.042%,100%{opacity:1}}
+.e43{animation:e43 37.90s linear infinite}
+@keyframes e44{0%,86.148%{opacity:0}86.174%,100%{opacity:1}}
+.e44{animation:e44 37.90s linear infinite}
+@keyframes e45{0%,86.280%{opacity:0}86.306%,100%{opacity:1}}
+.e45{animation:e45 37.90s linear infinite}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+<defs>
+<clipPath id="win"><rect x="12" y="12" width="836" height="414" rx="12"/></clipPath>
+<linearGradient id="bar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1c2230"/><stop offset="1" stop-color="#161b22"/></linearGradient>
+</defs>
+<g clip-path="url(#win)">
+<rect x="12" y="12" width="836" height="414" class="bg"/>
+<rect x="12" y="12" width="836" height="40" fill="url(#bar)"/>
+<line x1="12" y1="52" x2="848" y2="52" stroke="#30363d"/>
+<circle cx="34" cy="32" r="6.5" fill="#ff5f57"/>
+<circle cx="56" cy="32" r="6.5" fill="#febc2e"/>
+<circle cx="78" cy="32" r="6.5" fill="#28c840"/>
+<text class="ti" x="430" y="37" text-anchor="middle">gitlet — ~/demo</text>
+<g class="sc s0">
+<text class="lb" x="830" y="37" text-anchor="end">1/3 · Track changes</text>
+<g class="ln e0"><text class="pr" x="38" y="82">$</text><text class="cd" x="54.9" y="82" textLength="92.9">gitlet init</text><g class="cv c1"><rect x="54.9" y="66" width="96.9" height="22" class="bg"/><rect class="cu u1" x="54.9" y="68" width="8" height="18"/></g></g>
+<g class="ln e1"><text class="pr" x="38" y="104">$</text><text class="cd" x="54.9" y="104" textLength="202.8">echo &quot;Hello&quot; &gt; hello.txt</text><g class="cv c2"><rect x="54.9" y="88" width="206.8" height="22" class="bg"/><rect class="cu u2" x="54.9" y="90" width="8" height="18"/></g></g>
+<g class="ln e2"><text class="pr" x="38" y="126">$</text><text class="cd" x="54.9" y="126" textLength="169.0">gitlet add hello.txt</text><g class="cv c3"><rect x="54.9" y="110" width="173.0" height="22" class="bg"/><rect class="cu u3" x="54.9" y="112" width="8" height="18"/></g></g>
+<g class="ln e3"><text class="pr" x="38" y="148">$</text><text class="cd" x="54.9" y="148" textLength="211.2">gitlet commit &quot;Add hello&quot;</text><g class="cv c4"><rect x="54.9" y="132" width="215.2" height="22" class="bg"/><rect class="cu u4" x="54.9" y="134" width="8" height="18"/></g></g>
+<g class="ln e4"><text class="pr" x="38" y="170">$</text><text class="cd" x="54.9" y="170" textLength="84.5">gitlet log</text><g class="cv c5"><rect x="54.9" y="154" width="88.5" height="22" class="bg"/><rect class="cu u5" x="54.9" y="156" width="8" height="18"/></g></g>
+<text class="ln e5 hd" x="38" y="192" textLength="25.3">===</text>
+<text class="ln e6 cm" x="38" y="214" textLength="397.1">commit f95dc94104ca7fb727e0aafacec745f4a7500830</text>
+<text class="ln e7 dt" x="38" y="236" textLength="304.2">Date: Wed Oct 07 11:49:54 2026 +0300</text>
+<text class="ln e8 ou" x="38" y="258" textLength="76.0">Add hello</text>
+<text class="ln e10 hd" x="38" y="302" textLength="25.3">===</text>
+<text class="ln e11 cm" x="38" y="324" textLength="397.1">commit 126f6db8a28e7a03072a7fc278926766f1eb45a4</text>
+<text class="ln e12 dt" x="38" y="346" textLength="304.2">Date: Thu Jan 01 02:00:00 1970 +0200</text>
+<text class="ln e13 ou" x="38" y="368" textLength="118.3">initial commit</text>
+<g class="ln e14"><text class="pr" x="38" y="390">$</text><rect class="cu bl" x="54.9" y="376" width="8" height="18"/></g>
+</g>
+<g class="sc s1">
+<text class="lb" x="830" y="37" text-anchor="end">2/3 · Branch &amp; merge</text>
+<g class="ln e15"><text class="pr" x="38" y="82">$</text><text class="cd" x="54.9" y="82" textLength="405.6">gitlet branch feature &amp;&amp; gitlet checkout feature</text><g class="cv c16"><rect x="54.9" y="66" width="409.6" height="22" class="bg"/><rect class="cu u16" x="54.9" y="68" width="8" height="18"/></g></g>
+<g class="ln e16"><text class="pr" x="38" y="104">$</text><text class="cd" x="54.9" y="104" textLength="312.6">echo &quot;Hello from feature&quot; &gt; hello.txt</text><g class="cv c17"><rect x="54.9" y="88" width="316.6" height="22" class="bg"/><rect class="cu u17" x="54.9" y="90" width="8" height="18"/></g></g>
+<g class="ln e17"><text class="pr" x="38" y="126">$</text><text class="cd" x="54.9" y="126" textLength="473.2">gitlet add hello.txt &amp;&amp; gitlet commit &quot;Feature greeting&quot;</text><g class="cv c18"><rect x="54.9" y="110" width="477.2" height="22" class="bg"/><rect class="cu u18" x="54.9" y="112" width="8" height="18"/></g></g>
+<g class="ln e18"><text class="pr" x="38" y="148">$</text><text class="cd" x="54.9" y="148" textLength="185.9">gitlet checkout master</text><g class="cv c19"><rect x="54.9" y="132" width="189.9" height="22" class="bg"/><rect class="cu u19" x="54.9" y="134" width="8" height="18"/></g></g>
+<g class="ln e19"><text class="pr" x="38" y="170">$</text><text class="cd" x="54.9" y="170" textLength="304.2">echo &quot;Hello from master&quot; &gt; hello.txt</text><g class="cv c20"><rect x="54.9" y="154" width="308.2" height="22" class="bg"/><rect class="cu u20" x="54.9" y="156" width="8" height="18"/></g></g>
+<g class="ln e20"><text class="pr" x="38" y="192">$</text><text class="cd" x="54.9" y="192" textLength="464.7">gitlet add hello.txt &amp;&amp; gitlet commit &quot;Master greeting&quot;</text><g class="cv c21"><rect x="54.9" y="176" width="468.7" height="22" class="bg"/><rect class="cu u21" x="54.9" y="178" width="8" height="18"/></g></g>
+<g class="ln e21"><text class="pr" x="38" y="214">$</text><text class="cd" x="54.9" y="214" textLength="169.0">gitlet merge feature</text><g class="cv c22"><rect x="54.9" y="198" width="173.0" height="22" class="bg"/><rect class="cu u22" x="54.9" y="200" width="8" height="18"/></g></g>
+<text class="ln e22 wa" x="38" y="236" textLength="245.0">Encountered a merge conflict.</text>
+<g class="ln e23"><text class="pr" x="38" y="258">$</text><text class="cd" x="54.9" y="258" textLength="109.8">cat hello.txt</text><g class="cv c24"><rect x="54.9" y="242" width="113.8" height="22" class="bg"/><rect class="cu u24" x="54.9" y="244" width="8" height="18"/></g></g>
+<text class="ln e24 cf" x="38" y="280" textLength="101.4">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</text>
+<text class="ln e25 ou" x="38" y="302" textLength="143.6">Hello from master</text>
+<text class="ln e26 cf" x="38" y="324" textLength="59.1">=======</text>
+<text class="ln e27 ou" x="38" y="346" textLength="152.1">Hello from feature</text>
+<text class="ln e28 cf" x="38" y="368" textLength="59.1">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</text>
+<g class="ln e29"><text class="pr" x="38" y="390">$</text><rect class="cu bl" x="54.9" y="376" width="8" height="18"/></g>
+</g>
+<g class="sc s2 last">
+<text class="lb" x="830" y="37" text-anchor="end">3/3 · Inspect history</text>
+<g class="ln e30"><text class="pr" x="38" y="82">$</text><text class="cd" x="54.9" y="82" textLength="177.4">gitlet log | head -10</text><g class="cv c31"><rect x="54.9" y="66" width="181.4" height="22" class="bg"/><rect class="cu u31" x="54.9" y="68" width="8" height="18"/></g></g>
+<text class="ln e31 hd" x="38" y="104" textLength="25.3">===</text>
+<text class="ln e32 cm" x="38" y="126" textLength="397.1">commit a06df776e6187c4b02f5c7ccd8eee1836b5c5610</text>
+<text class="ln e33 mg" x="38" y="148" textLength="185.9">Merge: 6690cb5 86938f4</text>
+<text class="ln e34 dt" x="38" y="170" textLength="304.2">Date: Wed Oct 07 11:49:57 2026 +0300</text>
+<text class="ln e35 ou" x="38" y="192" textLength="228.1">Merged feature into master.</text>
+<text class="ln e37 hd" x="38" y="236" textLength="25.3">===</text>
+<text class="ln e38 cm" x="38" y="258" textLength="397.1">commit 6690cb50cbba920f222c69e89b6633274f9a0901</text>
+<text class="ln e39 dt" x="38" y="280" textLength="304.2">Date: Wed Oct 07 11:49:56 2026 +0300</text>
+<text class="ln e40 ou" x="38" y="302" textLength="126.7">Master greeting</text>
+<g class="ln e41"><text class="pr" x="38" y="324">$</text><text class="cd" x="54.9" y="324" textLength="194.3">gitlet status | head -3</text><g class="cv c42"><rect x="54.9" y="308" width="198.3" height="22" class="bg"/><rect class="cu u42" x="54.9" y="310" width="8" height="18"/></g></g>
+<text class="ln e42 hd" x="38" y="346" textLength="135.2">=== Branches ===</text>
+<text class="ln e43 ou" x="38" y="368" textLength="59.1">feature</text>
+<text class="ln e44 ok" x="38" y="390" textLength="59.1">*master</text>
+<g class="ln e45"><text class="pr" x="38" y="412">$</text><rect class="cu bl" x="54.9" y="398" width="8" height="18"/></g>
+</g>
+</g>
+<rect x="12.5" y="12.5" width="835" height="413" rx="12" fill="none" stroke="#30363d"/>
+</svg>

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="100" viewBox="12 22 210 88" role="img" aria-labelledby="t">
+  <title id="t">Gitlet: a branch that splits off and merges back</title>
+  <defs>
+    <linearGradient id="main" gradientUnits="userSpaceOnUse" x1="30" y1="0" x2="210" y2="0">
+      <stop offset="0" stop-color="#FB923C"/>
+      <stop offset="1" stop-color="#F97316"/>
+    </linearGradient>
+    <linearGradient id="side" gradientUnits="userSpaceOnUse" x1="72" y1="0" x2="194" y2="0">
+      <stop offset="0" stop-color="#A78BFA"/>
+      <stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- feature branch: leaves master, gets two commits, merges back -->
+  <path d="M72 88 C 94 88, 94 42, 116 42 H 150 C 172 42, 172 88, 194 88"
+        fill="none" stroke="url(#side)" stroke-width="8" stroke-linecap="round"/>
+  <!-- master -->
+  <path d="M30 88 H 210" fill="none" stroke="url(#main)" stroke-width="8" stroke-linecap="round"/>
+
+  <g fill="#FFFFFF">
+    <circle cx="30"  cy="88" r="11" fill="#FB923C"/><circle cx="30"  cy="88" r="4.5"/>
+    <circle cx="72"  cy="88" r="11" fill="#FA8A33"/><circle cx="72"  cy="88" r="4.5"/>
+    <circle cx="133" cy="88" r="11" fill="#F97F2A"/><circle cx="133" cy="88" r="4.5"/>
+    <circle cx="116" cy="42" r="11" fill="#9F84FB"/><circle cx="116" cy="42" r="4.5"/>
+    <circle cx="150" cy="42" r="11" fill="#9370F8"/><circle cx="150" cy="42" r="4.5"/>
+    <!-- merge commit -->
+    <circle cx="194" cy="88" r="15" fill="#F97316" stroke="#8B5CF6" stroke-width="5"/>
+    <circle cx="194" cy="88" r="5.5"/>
+  </g>
+</svg>
